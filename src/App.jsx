@@ -49,42 +49,26 @@ function App() {
   }
 
   return (
-    <div className="max-w-4xl  m-auto pb-6 pt-14">
+    <div className="bg-gray-100">
+      <div className="max-w-4xl  m-auto pb-6 pt-14">
       <div className="pt-14 bg-white pb-10 px-6 shadow">
-        <h1 className="text-black text-2xl mb-10 font-semibold">
-          Currency Exchange Rate
+        <h1 className="text-black text-3xl mb-10 font-semibold">
+          Currency Conversion
         </h1>
         <div className="flex flex-row md-6 gap-9 items-center">
-          <div className="flex-1">
+        <div className="flex-1">
             <label className="font-bold text-sm mb-3 block" htmlFor="text">
-              Amount
-            </label>
-            <input
-              type="text"
-              className="focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 w-full border-2 rounded-md min-h-50 pl-3 pr-10 py-2"
-              size="lg"
-              value={input}
-              placeholder="Enter amount"
-              onChange={(e) => setInput(e.target.value)}
-            />
-          </div>
-          <div className="flex-1">
-            <label className="font-bold text-sm mb-3 block" htmlFor="text">
-              From
+              To
             </label>
             <Dropdown className="uppercase"
               options={options}
               onChange={(e) => {
-                setFrom(e.value);
+                setTo(e.value);
               }}
-              value={from}
-              placeholder="From"
+              value={to}
+              placeholder="To"
             />
           </div>
-          {/* <div className="switch">
-          <HiSwitchHorizontal size="30px" 
-                        onClick={() => { flip()}}/>
-        </div> */}
           <div className="">
             <div
               className="border-2 border-blue-100 rounded-full p-4 cursor-pointer hover:border-green-300 "
@@ -110,28 +94,46 @@ function App() {
           </div>
           <div className="flex-1">
             <label className="font-bold text-sm mb-3 block" htmlFor="text">
-              To
+              From
             </label>
             <Dropdown className="uppercase"
               options={options}
               onChange={(e) => {
-                setTo(e.value);
+                setFrom(e.value);
               }}
-              value={to}
-              placeholder="To"
+              value={from}
+              placeholder="From"
+            />
+          </div>
+          {/* <div className="switch">
+          <HiSwitchHorizontal size="30px" 
+                        onClick={() => { flip()}}/>
+        </div> */}
+          
+        
+
+          <div className="flex-1">
+            <label className="font-bold text-sm mb-3 block" htmlFor="text">
+              Amount
+            </label>
+            <input
+              type="text"
+              className="focus:outline-none focus:ring-1 focus:ring-green-500 focus:border-green-500 w-full border-2 rounded-md min-h-50 pl-3 pr-10 py-2"
+              size="lg"
+              value={input}
+              placeholder="Enter amount"
+              onChange={(e) => setInput(e.target.value)}
             />
           </div>
         </div>
-        <div className="flex flex-row items-center justify-between my-3 mx-10">
-          <div className="">
-            <h2 className="text-green-500 text-semibold text-xl">Converted Amount:</h2>
-            <p className="text-bold text-2xl uppercase" >{input + " " + from + " = " + output.toFixed(2) + " " + to}</p>
-          </div>
-          <button
+
+        <div className=" my-3 mt-8 ">
+          
+          <button 
             className={
-              !input
-                ? "cursor-not-allowed inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-md font-bold rounded-md text-white bg-gray-300"
-                : "inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-md font-bold rounded-md text-white bg-green-500 hover:bg-green-600"
+             // !input
+              //</div>  ? "cursor-not-allowed inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-md font-bold rounded-md text-white bg-gray-300"
+                 "inline-flex justify-center py-3 px-5 border border-transparent shadow-sm text-md font-bold rounded-md text-white bg-green-500 hover:bg-green-600"
             }
             onClick={() => {
               convert();
@@ -139,8 +141,13 @@ function App() {
           >
             Convert
           </button>
+          <div className="mt-8">
+            <h1 className="text-green-500 text-semibold text-2xl">Result</h1>
+            <p className="text-bold text-2xl uppercase" >{input + " " + from + " = " + output.toFixed(2) + " " + to}</p>
+          </div>
         </div>
       </div>
+    </div>
     </div>
 
     // <div className="max-w-4xl m-auto pb-6 pt-14">
