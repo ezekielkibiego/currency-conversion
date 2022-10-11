@@ -69,7 +69,7 @@ function App() {
               placeholder="To"
             />
           </div>
-          <div className="">
+          {/* <div className="">
             <div
               className="border-2 border-blue-100 rounded-full p-4 cursor-pointer hover:border-green-300 "
               onClick={() => {
@@ -91,7 +91,7 @@ function App() {
                 ></path>
               </svg>
             </div>
-          </div>
+          </div> */}
           <div className="flex-1">
             <label className="font-bold text-sm mb-3 block" htmlFor="text">
               From
